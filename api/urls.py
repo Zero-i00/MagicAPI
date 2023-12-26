@@ -12,11 +12,15 @@ schema_view = get_schema_view(
       license=openapi.License(name="Magic License"),
    ),
    public=True,
-   permission_classes=[permissions.IsAdminUser],
+   permission_classes=[permissions.AllowAny],
 )
 
 urlpatterns = [
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
     path('auth/', include('djoser.urls')),
+    path('users/', include('api.core.urls')),
+    path('orders/', include('api.order.urls')),
+    path('products/', include('api.product.urls')),
+    path('categories/', include('api.category.urls')),
 ]
