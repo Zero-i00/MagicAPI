@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from djoser.serializers import UserSerializer
 from rest_framework import viewsets, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
@@ -29,6 +28,3 @@ class GetUserByToken(ObtainAuthToken):
             },
             status=status.HTTP_200_OK
         )
-        # token = Token.objects.get(key=response.data['token'])
-        # user = User.objects.filter(id=token.user_id)
-        # return Response({'token': token.key, 'user': UserInfoSerializer(user).data})
