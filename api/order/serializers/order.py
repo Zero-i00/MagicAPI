@@ -8,6 +8,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
+        depth = 3
 
     def create(self, validated_data):
         order = Order.objects.create(**validated_data)
